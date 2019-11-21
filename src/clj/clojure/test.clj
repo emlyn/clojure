@@ -732,7 +732,7 @@
        (fn []
          (doseq [v vars]
            (when (:test (meta v))
-             (each-fixture-fn (fn [] (test-var v))))))))))
+             (each-fixture-fn (fn [] (binding [*ns* ns] (test-var v)))))))))))
 
 (defn test-all-vars
   "Calls test-vars on every var interned in the namespace, with fixtures."

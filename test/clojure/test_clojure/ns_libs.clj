@@ -98,8 +98,8 @@
 
 (deftest test-defrecord-deftype-err-msg
   (is (thrown-with-cause-msg? clojure.lang.Compiler$CompilerException
-                        #"defrecord and deftype fields must be symbols, user\.MyRecord had: :shutdown-fn"
+                        #"defrecord and deftype fields must be symbols, clojure\.test-clojure\.ns-libs\.MyRecord had: :shutdown-fn"
                         (eval '(defrecord MyRecord [:shutdown-fn]))))
   (is (thrown-with-cause-msg? clojure.lang.Compiler$CompilerException
-                        #"defrecord and deftype fields must be symbols, user\.MyType had: :key1"
+                        #"defrecord and deftype fields must be symbols, clojure\.test-clojure\.ns-libs\.MyType had: :key1"
                         (eval '(deftype MyType [:key1])))))

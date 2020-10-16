@@ -127,3 +127,9 @@
   (binding [report original-report]
     (are [x y] (= x y)
       ((fn [x] (inc x)) 1) 2)))
+
+(defmacro test-macro []
+  :expanded)
+
+(deftest can-test-macro-expansion
+  (is (= :expanded (macroexpand '(test-macro))) "Should pass"))
